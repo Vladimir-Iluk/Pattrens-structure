@@ -6,6 +6,9 @@ import Brdige_pattern.Triangle;
 import Composit_pattern.Director;
 import Composit_pattern.Manager;
 import Composit_pattern.Worker;
+import Wrapper.BasePizza;
+import Wrapper.IPizza;
+import Wrapper.PeperoniWrapper;
 
 import java.awt.*;
 import java.util.Scanner;
@@ -19,6 +22,7 @@ public class Main {
                 System.out.println("1. Adapter");
                 System.out.println("2. Bridge");
                 System.out.println("3. Composite");
+                System.out.println("4. Wrapper");
                 System.out.println("Exit");
                 String option = scanner.nextLine();
                 switch (option){
@@ -44,6 +48,11 @@ public class Main {
                         director.addManager(manager);
                         director.addManager(manager2);
                         director.info();
+                        break;
+                    case "Wrapper":
+                        IPizza pizza = new BasePizza();
+                        pizza = new PeperoniWrapper(pizza);
+                        System.out.println(pizza.info());
                         break;
                     case "Exit":
                         running = false;
