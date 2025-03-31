@@ -9,11 +9,15 @@ import Composit_pattern.Worker;
 import Facade_pattern.FacadeApp;
 import Flyweight.Developer;
 import Flyweight.DeveloperFactory;
+import Proxy_pattern.AppRunner;
+import Proxy_pattern.Application;
+import Proxy_pattern.ProxyRunner;
 import Wrapper.BasePizza;
 import Wrapper.IPizza;
 import Wrapper.PeperoniWrapper;
 
 import java.awt.*;
+import java.security.spec.RSAOtherPrimeInfo;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -30,6 +34,7 @@ public class Main {
                 System.out.println("4. Wrapper");
                 System.out.println("5. Facade");
                 System.out.println("6. Flyweight");
+                System.out.println("7. Proxy");
                 System.out.println("Exit");
                 String option = scanner.nextLine();
                 switch (option){
@@ -77,6 +82,11 @@ public class Main {
                         for(Developer developer : developers) {
                             developer.writeCode();
                         }
+                        break;
+                    case "Proxy":
+                        String url = "something url";
+                        Application app = new ProxyRunner(url);
+                        app.run();
                         break;
                     case "Exit":
                         running = false;
