@@ -6,6 +6,7 @@ import Brdige_pattern.Triangle;
 import Composit_pattern.Director;
 import Composit_pattern.Manager;
 import Composit_pattern.Worker;
+import Facade_pattern.FacadeApp;
 import Wrapper.BasePizza;
 import Wrapper.IPizza;
 import Wrapper.PeperoniWrapper;
@@ -23,6 +24,7 @@ public class Main {
                 System.out.println("2. Bridge");
                 System.out.println("3. Composite");
                 System.out.println("4. Wrapper");
+                System.out.println("5. Facade");
                 System.out.println("Exit");
                 String option = scanner.nextLine();
                 switch (option){
@@ -53,6 +55,10 @@ public class Main {
                         IPizza pizza = new BasePizza();
                         pizza = new PeperoniWrapper(pizza);
                         System.out.println(pizza.info());
+                        break;
+                    case "Facade":
+                        FacadeApp facadeApp = new FacadeApp();
+                        facadeApp.startApp();
                         break;
                     case "Exit":
                         running = false;
