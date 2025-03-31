@@ -7,11 +7,15 @@ import Composit_pattern.Director;
 import Composit_pattern.Manager;
 import Composit_pattern.Worker;
 import Facade_pattern.FacadeApp;
+import Flyweight.Developer;
+import Flyweight.DeveloperFactory;
 import Wrapper.BasePizza;
 import Wrapper.IPizza;
 import Wrapper.PeperoniWrapper;
 
 import java.awt.*;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class Main {
@@ -25,6 +29,7 @@ public class Main {
                 System.out.println("3. Composite");
                 System.out.println("4. Wrapper");
                 System.out.println("5. Facade");
+                System.out.println("6. Flyweight");
                 System.out.println("Exit");
                 String option = scanner.nextLine();
                 switch (option){
@@ -59,6 +64,19 @@ public class Main {
                     case "Facade":
                         FacadeApp facadeApp = new FacadeApp();
                         facadeApp.startApp();
+                        break;
+                    case "Flyweight":
+                        DeveloperFactory developerFactory = new DeveloperFactory();
+                        List<Developer> developers = new ArrayList<>();
+                        for (int i = 0; i < 5; i++) {
+                            developers.add(developerFactory.getDeveloper("Java"));
+                        }
+                        for(int i =0; i < 5; i++) {
+                            developers.add(developerFactory.getDeveloper("Cpp"));
+                        }
+                        for(Developer developer : developers) {
+                            developer.writeCode();
+                        }
                         break;
                     case "Exit":
                         running = false;
